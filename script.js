@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const dotenv = require('dotenv');
+require('dotenv').config();
 const { Client } = require('pg');
 
-dotenv.config();
+//dotenv.config();
 app.use(express.json());
 app.use(express.text());
 app.use(express.urlencoded({ extended: true }));
