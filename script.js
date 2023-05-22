@@ -21,8 +21,23 @@ app.post('/webhook', (req, res) => {
   console.log(req.body);
   const data = req.body;
   
-  client.query('INSERT INTO risk_form_data (name, company, email, machinesite, address, city, country, telefone) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)', [data.value1, data.value2,data.value3, data.value4, data.value5, data.value6, data.value7, data.value8])
-  res.status(200).end();
+  client.query(`CREATE TABLE risk_form_data (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    company TEXT,
+    email TEXT,
+    machinesite TEXT,
+    address TEXT,
+    city TEXT,
+    country TEXT,
+    telefone TEXT
+  )`, (err, res) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('Table created successfully');
+    }
+  });
 });
 
 const port = process.env.PORT || 3000;
