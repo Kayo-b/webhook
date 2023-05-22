@@ -9,11 +9,12 @@ app.use(express.urlencoded({ extended: true }));
 //Set up database connection
 const client = new Client( {
   host: 'localhost',
+  port: '',
   user: 'postgres',
   password: '1234',
   database: 'postgres'
 })
-
+console.log(client)
 client.connect();
 //webhook
 app.post('/webhook', (req, res) => {
