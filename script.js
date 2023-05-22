@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 //Set up database connection
 const client = new Client( {
   host: 'localhost',
-  user: '',
+  user: 'postgres',
   password: 'psqlword',
   database: 'postgres'
 })
