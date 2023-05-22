@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: true }));
 
 //Set up database connection
 const client = new Client( {
-  host: 'localhost',
+  host: 'kayo_b',
   port: '',
   user: 'postgres',
   password: '1234',
