@@ -25,7 +25,7 @@ app.post('/webhook', (req, res) => {
   console.log(data.fields)
   console.log(data.fields.name)
   client.query(
-    'INSERT INTO risk_form_data (name, company, email, machinesite, address, city, country, telefon) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
+    'INSERT INTO risk_form_data (name, company, email, machinesite, address, city, country, telefone) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)',
     [
     data.fields.name.value,
     data.fields.company.value,
@@ -34,7 +34,7 @@ app.post('/webhook', (req, res) => {
     data.fields.address.value, 
     data.fields.city.value, 
     data.fields.country.value, 
-    data.fields.telefon.value
+    data.fields.telefone.value
   ]
   );
   res.status(200).end();
