@@ -1,7 +1,6 @@
-const getPassword = require('./password');
+require('dotenv').config()
 const express = require('express');
 const app = express();
-require('dotenv').config();
 const { Client } = require('pg');
 
 //dotenv.config();
@@ -14,7 +13,7 @@ const client = new Client( {
   host: 'mouse.db.elephantsql.com',
   port: 5432,
   user: 'cyrahcct',
-  password: getPassword(),
+  password: process.env.ELSQLPASSWORD,
   database: 'cyrahcct'
 })
 console.log(client)
