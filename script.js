@@ -8,11 +8,11 @@ app.use(express.urlencoded({ extended: true }));
 
 //Set up database connection
 const client = new Client( {
-  host: 'kayo_b',
-  port: '',
-  user: 'postgres',
-  password: '1234',
-  database: 'postgres'
+  host: 'mouse.db.elephantsql.com',
+  port: 5432,
+  user: 'cyrahcct',
+  password: 'W9f_HAWdmNSrjAB6xqyDTeqmuEr6eDaI',
+  database: 'cyrahcct'
 })
 console.log(client)
 client.connect();
