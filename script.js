@@ -18,6 +18,7 @@ const client = new Client( {
 })
 console.log(client)
 client.connect();
+
 //webhook
 app.post('/webhook', (req, res) => {
   console.log(req.body);
@@ -39,23 +40,19 @@ app.post('/webhook', (req, res) => {
   ]
   );
   res.status(200).end();
-  // client.query(`CREATE TABLE risk_form_data (
-  //   id SERIAL PRIMARY KEY,
-  //   name TEXT,
-  //   company TEXT,
-  //   email TEXT,
-  //   machinesite TEXT,
-  //   address TEXT,
-  //   city TEXT,
-  //   country TEXT,
-  //   telefone TEXT
-  // )`, (err, res) => {
-  //   if (err) {
-  //     console.error(err);
-  //   } else {
-  //     console.log('Table created successfully');
-  //   }
-  // });
+
+  app.get('/get', (req, res) => {
+    res.status(200).send('Pong');
+  });
+
+  const pingHerokuApp = () => {
+    setInterval(() => {
+      fetch('https://risk-form.herokuapp.com/get');
+    }, 25 * 60 * 1000);
+  };
+
+  pingHerokuApp();
+
 });
 
 const port = process.env.PORT || 3000;
