@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express');
+const fetch = require('node-fetch');
 const app = express();
 const { Client } = require('pg');
 
@@ -41,19 +42,19 @@ app.post('/webhook', (req, res) => {
   );
   res.status(200).end();
 
-  app.get('/get', (req, res) => {
-    res.status(200).send('Pong');
-  });
-
-  const pingHerokuApp = () => {
-    setInterval(() => {
-      fetch('https://risk-form.herokuapp.com/get');
-    }, 25 * 60 * 1000);
-  };
-
-  pingHerokuApp();
-
 });
+
+app.get('/get', (req, res) => {
+  res.status(200).send('Pong');
+});
+
+const pingHerokuApp = () => {
+  setInterval(() => {
+    fetch('https://risk-form.herokuapp.com/get');
+  }, 25 * 60 * 1000);
+};
+
+pingHerokuApp();
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
