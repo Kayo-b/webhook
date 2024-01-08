@@ -48,12 +48,12 @@ app.get('/get', (req, res) => {
 });
 
 const pingHerokuApp = () => {
-  setInterval(() => {
-    fetch('https://risk-form.herokuapp.com/get');
-  }, 25 * 60 * 1000);
+    fetch('https://webhookpost.herokuapp.com/get');
 };
 
-pingHerokuApp();
+setInterval(() => {
+  pingHerokuApp();
+}, 25 * 60 * 1000);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
