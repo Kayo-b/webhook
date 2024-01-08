@@ -1,9 +1,11 @@
 import fetch from 'node-fetch';
+import dotenv from 'dotenv';
+import { Client } from 'pg';
+import express from 'express';
 
-require('dotenv').config()
-const express = require('express');
+dotenv.config();
 const app = express();
-const { Client } = require('pg');
+
 
 //dotenv.config();
 app.use(express.json());
